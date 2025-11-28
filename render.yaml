@@ -4,7 +4,6 @@ services:
     runtime: docker 
     region: oregon 
     plan: free 
-    healthCheckPath: /actuator/health 
     envVars: 
       - key: SPRING_PROFILES_ACTIVE 
         value: prod 
