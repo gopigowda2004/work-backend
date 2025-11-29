@@ -9,15 +9,15 @@ services:
         value: prod 
       - key: PORT 
         value: 8080 
-      - key: DATABASE_URL 
+      - key: SPRING_DATASOURCE_URL 
         fromDatabase: 
           name: workloghub-db 
           property: connectionString 
-      - key: DATABASE_USER 
+      - key: SPRING_DATASOURCE_USERNAME 
         fromDatabase: 
           name: workloghub-db 
           property: user 
-      - key: DATABASE_PASSWORD 
+      - key: SPRING_DATASOURCE_PASSWORD 
         fromDatabase: 
           name: workloghub-db 
           property: password 
