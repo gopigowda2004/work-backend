@@ -16,6 +16,7 @@ COPY --from=build /app/target/*.jar app.jar
 
 EXPOSE 8080
 
-RUN echo '#!/bin/bash\nif [ -z "$SPRING_DATASOURCE_URL" ] && [ ! -z "$DB_HOST" ]; then\n  export SPRING_DATASOURCE_URL="jdbc:postgresql://$DB_HOST:${DB_PORT:-5432}/$DB_NAME"\nfi\nexec java -jar app.jar --spring.profiles.active=prod\n' > /app/entrypoint.sh && chmod +x /app/entrypoint.sh
+COPY entrypoint.sh /app/entrypoint.sh
+RUN chmod +x /app/entrypoint.sh
 
 ENTRYPOINT ["/app/entrypoint.sh"]
